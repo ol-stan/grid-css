@@ -701,6 +701,9 @@ body * {
 .form-button:hover {
     box-shadow: none;
 }
+.burger {
+    display: none;
+}
 
 /* Media tablet version */
 @media screen and (max-width: 1023px) {
@@ -713,6 +716,66 @@ body * {
     }
     .button-primary {
         text-shadow: 0px 2px 4px rgba(38, 50, 56, 0.16), 0px 4px 8px rgba(38, 50, 56, 0.08);
+    }
+    .header-wrapper {
+        grid-template-columns: auto auto 1fr;
+    }
+    
+    .header-button {
+        justify-self: end;
+    }
+    .logo-icon {
+        display: none;
+    }
+    .burger {
+        display: block;
+        border: none;
+        background: none;
+        margin: 0 10px 0 0;
+        padding: 10px;
+        width: 38px;
+        height: 38px;
+    }    
+    .burger-line {
+        position: relative;
+        display: block;
+        height: 2px;
+        width: 18px;
+        border-radius: 4px;
+        background: var(--color-gray-64);
+        transition-delay: 0.5s;
+        transition-duration: 0.6s;
+    }
+    .burger-line:before,
+    .burger-line:after {
+        content: '';
+        position: absolute;        
+        left: 0;
+        height: 2px;
+        width: 18px;
+        border-radius: 4px;
+        background: var(--color-gray-64);
+        transition-duration: 0.6s;
+    }
+    .burger-line:before {
+        top: 6px;
+    }
+    .burger-line:after {
+        bottom: 6px;
+    }
+    .burger.active .burger-line {        
+        transform: rotate(90deg);        
+    }
+    .burger.active .burger-line{
+        background: var(--color-white);
+    }
+    .burger.active .burger-line:before {
+        transition-duration: 0.6s;
+        transform: rotate(315deg);
+    }
+    .burger.active .burger-line:after {
+        transition-duration: 0.6s;
+        transform: rotate(-315deg);
     }
     .logo-title {
         font-size: 32px;
@@ -737,7 +800,25 @@ body * {
     .main-grid-text2 {
         display: none;
     }
+    .main-navigation {
+        display: none;
+        position: absolute;
+        top: 89px;
+        left: 0;
+        width: 100%;
+        background: var(--color-white);
+        padding: 40px 20px 20px;
+        z-index: 5;
+    }    
     .main-navigation-list {
+        grid-template-columns: 1fr;
+        grid-template-rows: repeat(4, auto);
+    }
+    .main-navigation-item {
+        margin: 0 0 20px 0;
+        justify-self: center;
+    }
+    .main-navigation-item::after {
         display: none;
     }
     .section {
@@ -820,10 +901,81 @@ body * {
 
 /* Media mobile version */
 @media screen and (max-width: 767px) {
+    .logo-title {
+        font-size: 24px;
+    }
+    .main-text-description {
+        font-size: 24px;
+    }
+    .main-grid {
+        width: 170%;
+        margin: 0px -30%;
+        grid-gap: 15px;
+    }
+    .main-grid-image1 {
+        max-height: 330px;
+        grid-row: 2/6;
+    }
+    .main-grid-image3,
+    .main-grid-image4 {
+        max-height: 107px;
+        min-height: 107px;
+    }
+    .main-grid-image5 {
+        max-height: 136px;
+        min-height: 136px;
+    }
+    .main-grid-image6 {
+        max-height: 179px;
+        min-height: 179px;
+        grid-row: 4/6;
+    }
+    .main-grid-image7 {
+        grid-column: 2/3;
+        grid-row: 5/6;
+        min-height: 146px;
+        max-height: 146px;
+    }
     .contact-email {
         font-size: 18px;
     }
     .social-list {
         justify-content: space-between;
+    }
+    .section-title {
+        margin: 0 0 16px 0;
+        font-size: 32px;
+        text-align: left;
+    }
+    .section-subtitle {
+        font-size: 24px;
+        line-height: 36px;
+    }
+    .section-text {
+        font-size: 18px;
+        line-height: 32px;
+    }
+    .section-item-icon-block {
+        margin: 0 0 18px 0;
+    }
+    .section-description {
+        font-family: var(--font-main-r);
+        font-size: 24px;
+        text-align: left;
+    }
+    .price-cards {
+        grid-template-rows: repeat(3, auto);
+    }
+    .price-card-name {
+        color: var(--color-black);
+    }
+    .price-card-price {
+        color: var(--color-purple-dark);
+    }
+    .price-card-price {
+        font-size: 16px;
+    }
+    .price-card-price-amount {
+        font-size: 24px;
     }
 }
