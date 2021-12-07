@@ -966,6 +966,12 @@ body * {
     .price-cards {
         grid-template-rows: repeat(3, auto);
     }
+    .price-card-price {
+        text-transform: uppercase;
+    }
+    .price-card:hover::after {
+        display: none;
+    }
     .price-card-name {
         color: var(--color-black);
     }
@@ -977,5 +983,41 @@ body * {
     }
     .price-card-price-amount {
         font-size: 24px;
+    }
+    .price-card-option:before,
+    .price-card:nth-child(3) .price-card-option:before {
+        background-color: var(--color-yellow-dark);
+    }
+    .price-card:hover {
+        background: var(--color-purple-dark);
+    }
+    .price-card:hover .price-card-name,
+    .price-card:hover .price-card-label {
+        color: var(--color-green-light);
+    }
+    .price-card:hover .price-card-label {
+        border-color: var(--color-green-light);
+    }
+    .price-card:hover .price-card-price {
+        color: var(--color-white);
+        text-shadow: 0px 4px 0px #000000;
+    }
+    .price-card:hover .price-card-option:before {
+        background: var(--color-black);
+        background-image: url("data:image/svg+xml,%3Csvg width='12' height='9' viewBox='0 0 12 9' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M10.48 1.64014L4.32 7.80014L1.52 5.00014' stroke='%23FFFFFF' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E%0A");
+        background-repeat: no-repeat;
+        background-position: center;
+    }
+    .price-card:hover .price-card-option {
+        color: var(--color-white);
+    }
+    .price-card-button {
+        background: var(--color-purple-dark);
+        color: var(--color-white);
+        border-radius: 16px;
+    }
+    .price-card:hover .price-card-button {
+        color: var(--color-black);
+        background: var(--color-white);
     }
 }
